@@ -1,11 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planning - TravelEase</title>
+    <link rel="stylesheet" href="../css/universal.css">
+    <link rel="stylesheet" href="../css/trip-planning.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-mountain"></i>
+                    <span>TravelEase</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+                    <li><a href="trip-planning.html" class="nav-link active">Trip Planning</a></li>
+                    <li><a href="travel-stories.html" class="nav-link">Travel Stories</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="planning-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Plan Your Perfect Journey</h1>
+                    <p>Let us help you create unforgettable memories in Northern Pakistan's most spectacular destinations</p>
+                    <div class="hero-cta">
+                        <a href="#trip-form" class="btn btn-primary">Start Planning</a>
+                        <a href="#packages" class="btn btn-secondary">View Packages</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trip Planning Form -->
+        <section class="trip-form-section" id="trip-form">
+            <div class="container">
+                <div class="form-header">
+                    <h2>Tell Us About Your Dream Trip</h2>
+                    <p>Share your preferences and we'll create a personalized itinerary just for you</p>
+                </div>
+                
+                <form class="trip-form" id="tripPlanningForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">
+                                <i class="fas fa-user"></i>
+                                Full Name
+                            </label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i>
+                                Email Address
+                            </label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i>
+                                Phone Number
+                            </label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="travelers">
+                                <i class="fas fa-users"></i>
+                                Number of Travelers
+                            </label>
+                            <select id="travelers" name="travelers" required>
+                                <option value="">Select travelers</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3-5">3-5 People</option>
+                                <option value="6-10">6-10 People</option>
+                                <option value="10+">10+ People</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startDate">
+                                <i class="fas fa-calendar-alt"></i>
+                                Preferred Start Date
+                            </label>
+                            <input type="date" id="startDate" name="startDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duration">
+                                <i class="fas fa-clock"></i>
+                                Trip Duration
+                            </label>
+                            <select id="duration" name="duration" required>
+                                <option value="">Select duration</option>
+                                <option value="3-5">3-5 Days</option>
+                                <option value="6-10">6-10 Days</option>
+                                <option value="11-15">11-15 Days</option>
+                                <option value="15+">15+ Days</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group destinations-group">
+                        <label>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Preferred Destinations
+                        </label>
+                        <div class="destination-checkboxes">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="hunza" name="destinations" value="hunza">
+                                <label for="hunza">Hunza Valley</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skardu" name="destinations" value="skardu">
+                                <label for="skardu">Skardu</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fairy-meadows" name="destinations" value="fairy-meadows">
+                                <label for="fairy-meadows">Fairy Meadows</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="swat" name="destinations" value="swat">
+                                <label for="swat">Swat Valley</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="naran" name="destinations" value="naran">
+                                <label for="naran">Naran Kaghan</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="chitral" name="destinations" value="chitral">
+                                <label for="chitral">Chitral</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">
+                            <i class="fas fa-dollar-sign"></i>
+                            Budget Range (PKR)
+                        </label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select budget range</option>
+                            <option value="50000-100000">50,000 - 100,000</option>
+                            <option value="100000-200000">100,000 - 200,000</option>
+                            <option value="200000-300000">200,000 - 300,000</option>
+                            <option value="300000+">300,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group activities-group">
+                        <label>
+                            <i class="fas fa-hiking"></i>
+                            Preferred Activities
+                        </label>
+                        <div class="activity-checkboxes">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="trekking" name="activities" value="trekking">
+                                <label for="trekking">Trekking</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="photography" name="activities" value="photography">
+                                <label for="photography">Photography</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cultural" name="activities" value="cultural">
+                                <label for="cultural">Cultural Tours</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adventure" name="activities" value="adventure">
+                                <label for="adventure">Adventure Sports</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="camping" name="activities" value="camping">
+                                <label for="camping">Camping</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="wildlife" name="activities" value="wildlife">
+                                <label for="wildlife">Wildlife Watching</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accommodation">
+                            <i class="fas fa-bed"></i>
+                            Accommodation Preference
+                        </label>
+                        <select id="accommodation" name="accommodation" required>
+                            <option value="">Select accommodation</option>
+                            <option value="budget">Budget (Hostels/Guesthouses)</option>
+                            <option value="mid-range">Mid-range (Hotels)</option>
+                            <option value="luxury">Luxury (Premium Hotels)</option>
+                            <option value="camping">Camping/Glamping</option>
+                            <option value="homestay">Homestay</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="special-requests">
+                            <i class="fas fa-comment"></i>
+                            Special Requests or Requirements
+                        </label>
+                        <textarea id="special-requests" name="special-requests" rows="4" placeholder="Tell us about any special requirements, dietary restrictions, accessibility needs, or specific interests..."></textarea>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Trip Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Pre-Made Packages -->
+        <section class="packages-section" id="packages">
+            <div class="container">
+                <h2 class="section-title">Popular Trip Packages</h2>
+                <p class="packages-intro">Choose from our carefully curated packages or use them as inspiration for your custom trip</p>
+                
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-image">
+                            <div class="package-placeholder package-hunza"></div>
+                            <div class="package-badge">Best Seller</div>
+                        </div>
+                        <div class="package-content">
+                            <h3>Hunza Valley Explorer</h3>
+                            <div class="package-details">
+                                <span class="duration"><i class="fas fa-clock"></i> 7 Days</span>
+                                <span class="price">PKR 85,000</span>
+                            </div>
+                            <p>Discover the breathtaking beauty of Hunza Valley, including Karimabad, Altit Fort, and stunning mountain views.</p>
+                            <div class="package-features">
+                                <div class="feature">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Karimabad, Altit, Duikar</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-bed"></i>
+                                    <span>Mid-range Hotels</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>All Meals Included</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="package-card">
+                        <div class="package-image">
+                            <div class="package-placeholder package-skardu"></div>
+                            <div class="package-badge">Adventure</div>
+                        </div>
+                        <div class="package-content">
+                            <h3>Skardu Adventure</h3>
+                            <div class="package-details">
+                                <span class="duration"><i class="fas fa-clock"></i> 10 Days</span>
+                                <span class="price">PKR 125,000</span>
+                            </div>
+                            <p>Experience the rugged beauty of Skardu with visits to Shangrila Resort, Deosai Plains, and K2 Base Camp trek.</p>
+                            <div class="package-features">
+                                <div class="feature">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Skardu, Deosai, K2 Base</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-hiking"></i>
+                                    <span>Trekking Included</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-camera"></i>
+                                    <span>Photography Tour</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="package-card">
+                        <div class="package-image">
+                            <div class="package-placeholder package-fairy"></div>
+                            <div class="package-badge">Luxury</div>
+                        </div>
+                        <div class="package-content">
+                            <h3>Fairy Meadows Luxury</h3>
+                            <div class="package-details">
+                                <span class="duration"><i class="fas fa-clock"></i> 6 Days</span>
+                                <span class="price">PKR 150,000</span>
+                            </div>
+                            <p>Luxury camping experience at Fairy Meadows with stunning views of Nanga Parbat and premium amenities.</p>
+                            <div class="package-features">
+                                <div class="feature">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Fairy Meadows, Nanga Parbat</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-star"></i>
+                                    <span>Luxury Camping</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-concierge-bell"></i>
+                                    <span>Premium Service</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planning Process -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">How We Plan Your Trip</h2>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>1. Consultation</h3>
+                            <p>We discuss your preferences, budget, and travel style to understand your perfect trip.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>2. Custom Itinerary</h3>
+                            <p>Our experts create a personalized itinerary tailored to your interests and requirements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>3. Booking & Confirmation</h3>
+                            <p>We handle all bookings, reservations, and confirmations to ensure a smooth experience.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>4. Travel Support</h3>
+                            <p>24/7 support throughout your journey to ensure everything goes according to plan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose TravelEase?</h2>
+                <div class="choose-grid">
+                    <div class="choose-item">
+                        <div class="choose-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Expert Local Guides</h3>
+                        <p>Our certified local guides have extensive knowledge of the region and ensure your safety.</p>
+                    </div>
+                    
+                    <div class="choose-item">
+                        <div class="choose-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Safety First</h3>
+                        <p>Your safety is our top priority. We follow strict safety protocols and have emergency support.</p>
+                    </div>
+                    
+                    <div class="choose-item">
+                        <div class="choose-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Eco-Friendly</h3>
+                        <p>We promote sustainable tourism practices that preserve the environment and benefit local communities.</p>
+                    </div>
+                    
+                    <div class="choose-item">
+                        <div class="choose-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Authentic Experiences</h3>
+                        <p>Immerse yourself in local culture with authentic experiences and genuine hospitality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What's the best time to visit Northern Pakistan?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The best time to visit is from April to October, with peak season being May to September. Weather is most favorable during these months for trekking and sightseeing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do I need special permits for certain areas?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, some areas require special permits. We handle all permit applications and documentation as part of our service.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What's included in the trip packages?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our packages typically include accommodation, meals, transportation, guide services, and permits. Specific inclusions vary by package.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I customize a package to my preferences?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! We specialize in creating custom itineraries tailored to your interests, budget, and travel style.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What safety measures do you have in place?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We have comprehensive safety protocols including trained guides, emergency communication systems, first aid kits, and 24/7 support.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What should I pack for the trip?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We provide a detailed packing list based on your specific itinerary, season, and activities. Essential items include warm clothing, sturdy hiking boots, and sun protection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-mountain"></i>
+                        <span>TravelEase</span>
+                    </div>
+                    <p>Your trusted partner for exploring the stunning landscapes and rich culture of Northern Pakistan. We create unforgettable experiences while supporting local communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="trip-planning.html">Trip Planning</a></li>
+                        <li><a href="travel-stories.html">Travel Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Destinations</h4>
+                    <ul>
+                        <li><a href="#">Hunza Valley</a></li>
+                        <li><a href="#">Skardu</a></li>
+                        <li><a href="#">Fairy Meadows</a></li>
+                        <li><a href="#">Swat Valley</a></li>
+                        <li><a href="#">Naran Kaghan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Gilgit, Northern Pakistan</p>
+                        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                        <p><i class="fas fa-envelope"></i> info@travelease.pk</p>
+                        <p><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelEase. All rights reserved. | Designed with ❤️ for Northern Pakistan</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/trip-planing.js"></script>
 </body>
 </html>
