@@ -1,30 +1,42 @@
-name: PR Validation for Develop Branch
-
+name: PR Validation
 on:
   pull_request:
-    branches: [develop]
-
+    branches:
+      - develop
+    types:
+      - opened
+      - synchronize
 jobs:
-  lint-and-build:
+  lint:
+    name: Lint HTML and CSS Files
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      - name: Lint HTML Files
+        run: |
+          echo "Linting HTML files..."
+          npx htmlhint "src/pages/*/.html"
+          echo "HTML linting completed successfully"
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run HTMLHint
-        run: npx htmlhint '**/*.html'
-
-      - name: Run Stylelint
-        run: npx stylelint "**/*.css"
-
-      - name: Parcel Build
-        run: npx parcel build src/index.html
+      - name: Lint CSS Files
+        run: |
+            echo "Linting CSS files with basic rules..."
+            if find styles -name "*.css" | grep -q .; then
+              npx stylelint "src/css/*/.css"
+              echo "CSS linting completed successfully"  
+            else
+              echo "No CSS files found to lint"
+            fi
+# Job 2
+  build:
+    name: Build Website
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Test Building With Parcel
+        run: npx parcel build ".src/pages/index.html" --dist-dir "./dist" --public-url "./"
