@@ -1,0 +1,12 @@
+# Build outputs
+/dist/
+/build/
+/.parcel-cache/
+
+node_modules/
+
+
+# Log files
+logs
+*.log
+
