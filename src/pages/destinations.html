@@ -1,11 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - TravelEase | Northern Pakistan Travel Guide</title>
+    <meta name="description" content="Discover the breathtaking destinations of Northern Pakistan including Hunza, Skardu, Swat, and more. Plan your perfect mountain adventure.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/universal.css">
+    <link rel="stylesheet" href="../css/destinations.css">
 </head>
 <body>
-  
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <i class="fas fa-mountain"></i>
+                    TravelEase
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="#" class="nav-link active">Destinations</a></li>
+                    <li><a href="#" class="nav-link">About Us</a></li>
+                    <li><a href="#" class="nav-link">Trip Planning</a></li>
+                    <li><a href="#" class="nav-link">Travel Stories</a></li>
+                    <li><a href="#" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Discover Northern Pakistan</h1>
+            <p>Explore the most breathtaking destinations in the world, from towering peaks to pristine valleys, rich culture to warm hospitality.</p>
+            <a href="#destinations" class="btn btn-primary">
+                <i class="fas fa-compass"></i>
+                Explore Destinations
+            </a>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="container">
+        <div class="quick-stats">
+            <div class="stat-item">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Top Destinations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8000m+</div>
+                <div class="stat-label">Highest Peaks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">365</div>
+                <div class="stat-label">Days of Adventure</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Cultural Sites</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations-section" id="destinations">
+        <div class="container">
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <h3 class="text-center mb-3">Filter by Region</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-region="all">All Destinations</button>
+                    <button class="filter-btn" data-region="gilgit-baltistan">Gilgit-Baltistan</button>
+                    <button class="filter-btn" data-region="kpk">Khyber Pakhtunkhwa</button>
+                </div>
+            </div>
+
+            <!-- Gilgit-Baltistan Region -->
+            <div class="region-section" data-region="gilgit-baltistan">
+                <div class="region-header">
+                    <h2 class="region-title">Gilgit-Baltistan</h2>
+                    <p class="region-description">
+                        Home to some of the world's highest peaks including K2, Gilgit-Baltistan offers unparalleled mountain scenery, 
+                        ancient cultures, and adventure opportunities. This region is where three great mountain ranges meet: 
+                        the Himalayas, Karakoram, and Hindu Kush.
+                    </p>
+                </div>
+
+                <div class="destinations-grid">
+                    <!-- Hunza -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1514558427911-8e293bebf18c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hunza Valley" class="destination-image">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Hunza Valley</h3>
+                            <p class="destination-summary">
+                                The crown jewel of Northern Pakistan, Hunza Valley offers stunning views of Rakaposhi and Ultar peaks, 
+                                ancient forts, and the famous longevity of its people. Known for its apricot blossoms and terraced fields.
+                            </p>
+                            
+                            <div class="destination-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <div>
+                                        <div class="detail-label">Best Time</div>
+                                        <div class="detail-value">March - October</div>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-mountain"></i>
+                                    <div>
+                                        <div class="detail-label">Elevation</div>
+                                        <div class="detail-value">2,400m</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="attractions-list">
+                                <h4>Major Attractions</h4>
+                                <ul>
+                                    <li>Altit Fort (1,000 years old)</li>
+                                    <li>Baltit Fort with museum</li>
+                                    <li>Attabad Lake (turquoise waters)</li>
+                                    <li>Passu Cones (cathedral peaks)</li>
+                                    <li>Khunjerab Pass (China border)</li>
+                                </ul>
+                            </div>
+
+                            <div class="culture-food">
+                                <h4>Culture & Food</h4>
+                                <p>Experience Hunzakut hospitality with traditional dishes like Hunza bread, apricot oil, and glacier water. 
+                                The region is famous for its organic farming and unique Wakhi culture.</p>
+                            </div>
+
+                            <div class="cost-badge">
+                                <i class="fas fa-dollar-sign"></i>
+                                Budget: $30-80/day
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skardu -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1602147557719-1d65f9e58a24?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Skardu" class="destination-image">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Skardu</h3>
+                            <p class="destination-summary">
+                                Gateway to the world's second-highest peak K2, Skardu is a paradise for mountaineers and nature lovers. 
+                                The region offers dramatic landscapes, crystal-clear lakes, and ancient Buddhist heritage.
+                            </p>
+                            
+                            <div class="destination-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <div>
+                                        <div class="detail-label">Best Time</div>
+                                        <div class="detail-value">May - September</div>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-mountain"></i>
+                                    <div>
+                                        <div class="detail-label">Elevation</div>
+                                        <div class="detail-value">2,230m</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="attractions-list">
+                                <h4>Major Attractions</h4>
+                                <ul>
+                                    <li>Shangrila Resort (Heaven on Earth)</li>
+                                    <li>Sheosar Lake (alpine paradise)</li>
+                                    <li>Katpana Desert (cold desert)</li>
+                                    <li>Skardu Fort (ancient fortress)</li>
+                                    <li>Satpara Lake (emerald waters)</li>
+                                </ul>
+                            </div>
+
+                            <div class="culture-food">
+                                <h4>Culture & Food</h4>
+                                <p>Rich Balti culture with influences from Tibet and Central Asia. Try traditional Balti cuisine including 
+                                chapshuro, mamtu, and butter tea while enjoying local music and dance.</p>
+                            </div>
+
+                            <div class="cost-badge">
+                                <i class="fas fa-dollar-sign"></i>
+                                Budget: $35-90/day
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Khaplu -->
+                    <div class="destination-card">
+                        <img src="https://images.pexels.com/photos/8835247/pexels-photo-8835247.jpeg?_gl=1*ims9a3*_ga*MTYwMDg3NjIzMS4xNzI1NjMzOTcx*_ga_8JE65Q40S6*czE3NTE2NjE1NTgkbzMkZzEkdDE3NTE2NjE1NzYkajQyJGwwJGgw" alt="Khaplu" class="destination-image">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Khaplu</h3>
+                            <p class="destination-summary">
+                                A hidden gem in the Shyok Valley, Khaplu offers pristine nature, traditional architecture, and access to 
+                                some of the most remote trekking routes in the Karakoram range.
+                            </p>
+                            
+                            <div class="destination-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <div>
+                                        <div class="detail-label">Best Time</div>
+                                        <div class="detail-value">May - October</div>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-mountain"></i>
+                                    <div>
+                                        <div class="detail-label">Elevation</div>
+                                        <div class="detail-value">2,600m</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="attractions-list">
+                                <h4>Major Attractions</h4>
+                                <ul>
+                                    <li>Khaplu Palace (royal heritage)</li>
+                                    <li>Chaqchan Mosque (700 years old)</li>
+                                    <li>Shyok River Valley</li>
+                                    <li>Mashabrum View Point</li>
+                                    <li>Trekking routes to Hushe and Gondogoro La</li>
+                                </ul>
+                            </div>
+
+                            <div class="culture-food">
+                                <h4>Culture & Food</h4>
+                                <p>Khaplu blends Tibetan and Central Asian culture. Enjoy dishes like buckwheat noodles, balay soup, and yak butter tea. The region is known for its wood-carved homes and peaceful vibes.</p>
+                            </div>
+
+                            <div class="cost-badge">
+                                <i class="fas fa-dollar-sign"></i>
+                                Budget: $25-70/day
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khyber Pakhtunkhwa Region -->
+            <div class="region-section" data-region="kpk">
+                <div class="region-header">
+                    <h2 class="region-title">Khyber Pakhtunkhwa (KPK)</h2>
+                    <p class="region-description">
+                        Known for its lush green valleys, majestic rivers, and unique Pashtun culture, KPK is a vibrant travel destination. 
+                        Swat, Kalam, and Chitral are among its most famous spots, offering beauty and serenity.
+                    </p>
+                </div>
+
+                <div class="destinations-grid">
+                    <!-- Swat Valley -->
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1668936783338-e468729f2686?q=80&w=1328&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Swat Valley" class="destination-image">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Swat Valley</h3>
+                            <p class="destination-summary">
+                                Often called the "Switzerland of the East", Swat boasts lush valleys, waterfalls, and ancient Buddhist heritage. A family-friendly destination for all seasons.
+                            </p>
+
+                            <div class="destination-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <div>
+                                        <div class="detail-label">Best Time</div>
+                                        <div class="detail-value">April - September</div>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-mountain"></i>
+                                    <div>
+                                        <div class="detail-label">Elevation</div>
+                                        <div class="detail-value">980m - 2,100m</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="attractions-list">
+                                <h4>Major Attractions</h4>
+                                <ul>
+                                    <li>Malam Jabba (ski resort)</li>
+                                    <li>Kalam Valley</li>
+                                    <li>Mahodand Lake</li>
+                                    <li>Butkara Stupa</li>
+                                    <li>Ushu Forest</li>
+                                </ul>
+                            </div>
+
+                            <div class="culture-food">
+                                <h4>Culture & Food</h4>
+                                <p>Enjoy authentic Pashtun cuisine like chapli kebab and seekh kebab. Swat is also known for handcrafted shawls and embroidery.</p>
+                            </div>
+
+                            <div class="cost-badge">
+                                <i class="fas fa-dollar-sign"></i>
+                                Budget: $20-50/day
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kalash Valley -->
+                    <div class="destination-card">
+                        <img src="https://cdn.pixabay.com/photo/2016/04/15/13/30/fassa-valley-1331004_1280.jpg" alt="Kalash Valley" class="destination-image">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Kalash Valley</h3>
+                            <p class="destination-summary">
+                                Nestled in Chitral, Kalash Valley is home to the indigenous Kalash people with their own language, traditions, and colorful festivals.
+                            </p>
+
+                            <div class="destination-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <div>
+                                        <div class="detail-label">Best Time</div>
+                                        <div class="detail-value">May - September</div>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-mountain"></i>
+                                    <div>
+                                        <div class="detail-label">Elevation</div>
+                                        <div class="detail-value">1,670m</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="attractions-list">
+                                <h4>Major Attractions</h4>
+                                <ul>
+                                    <li>Bumburet Valley</li>
+                                    <li>Rumbur Village</li>
+                                    <li>Traditional Kalash Homes</li>
+                                    <li>Chilimjusht Festival</li>
+                                </ul>
+                            </div>
+
+                            <div class="culture-food">
+                                <h4>Culture & Food</h4>
+                                <p>Kalash people follow a polytheistic religion and celebrate with dance, wine, and colorful attire. Try Kalash cheese and walnut bread during your stay.</p>
+                            </div>
+
+                            <div class="cost-badge">
+                                <i class="fas fa-dollar-sign"></i>
+                                Budget: $25-60/day
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-mountain"></i>
+                        <span>TravelEase</span>
+                    </div>
+                    <p>Your trusted partner for exploring the stunning landscapes and rich culture of Northern Pakistan. We create unforgettable experiences while supporting local communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="trip-planning.html">Trip Planning</a></li>
+                        <li><a href="travel-stories.html">Travel Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Destinations</h4>
+                    <ul>
+                        <li><a href="#">Hunza Valley</a></li>
+                        <li><a href="#">Skardu</a></li>
+                        <li><a href="#">Fairy Meadows</a></li>
+                        <li><a href="#">Swat Valley</a></li>
+                        <li><a href="#">Naran Kaghan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Gilgit, Northern Pakistan</p>
+                        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                        <p><i class="fas fa-envelope"></i> info@travelease.pk</p>
+                        <p><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelEase. All rights reserved. | Designed with ❤️ for Northern Pakistan</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
