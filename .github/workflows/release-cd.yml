@@ -1,34 +1,49 @@
-name: Release Branch PR Validation
+name: Release CD
 
 on:
-  pull_request:
-    branches:
-      - release
-    types:
-      - opened
-      - synchronize
+  push:
+    branches: [release]
 
 jobs:
-  lint-and-build:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Build Static Website With Parcel
+        run: npx parcel build "./src/pages/index.html" --dist-dir "./dist" --public-url "./"
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-pages-artifact@v3
         with:
-          node-version: 18
+          path: './dist'
+          name: build-artifact-${{ github.run_number }}
 
-      - name: Install Dependencies
-        run: npm install
+  deploy-to-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging-env
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy Website On GH-Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: build-artifact-${{ github.run_number }}
+          token: ${{ github.token }}
 
-      - name: Run HTMLHint
-        run: npx htmlhint "src/pages/**/*.html"
-
-      - name: Run Stylelint
-        run: npx stylelint "src/css/**/*.css"
-
-      - name: Parcel Build
-        run: npx parcel build src/pages/index.html --dist-dir dist --public-url "./"
+      - name: Create deployment status
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: context.sha,
+              state: 'success',
+              target_url: 'https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/staging/',
+              description: 'Staging deployment successful',
+              context: 'deployment/staging'
+            })
