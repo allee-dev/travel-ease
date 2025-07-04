@@ -1,0 +1,34 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Static Website With Parcel
+        run: npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+          name: 'build-artifact-${{ github.run_number }}'
+
+  deploy-to-dev:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: development-env
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy Website On GH-Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: 'build-artifact-${{ github.run_number }}'
+          token: '${{ github.token }}'
