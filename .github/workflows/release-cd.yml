@@ -1,0 +1,49 @@
+name: Release CD
+
+on:
+  push:
+    branches: [release]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Static Website With Parcel
+        run: npx parcel build "./src/pages/index.html" --dist-dir "./dist" --public-url "./"
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+          name: build-artifact-${{ github.run_number }}
+
+  deploy-to-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging-env
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy Website On GH-Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: build-artifact-${{ github.run_number }}
+          token: ${{ github.token }}
+
+      - name: Create deployment status
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: context.sha,
+              state: 'success',
+              target_url: 'https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/staging/',
+              description: 'Staging deployment successful',
+              context: 'deployment/staging'
+            })
