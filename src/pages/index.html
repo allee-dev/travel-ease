@@ -1,11 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
- 
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TravelEase - Discover Northern Pakistan</title>
+		<link rel="stylesheet" href="../css/universal.css" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<header class="header">
+			<nav class="navbar">
+				<div class="nav-container">
+					<div class="logo">
+						<i class="fas fa-mountain"></i>
+						<span>TravelEase</span>
+					</div>
+					<ul class="nav-menu">
+						<li><a href="index.html" class="nav-link active">Home</a></li>
+						<li><a href="about.html" class="nav-link">About Us</a></li>
+						<li>
+							<a href="destinations.html" class="nav-link">Destinations</a>
+						</li>
+						<li>
+							<a href="trip-planning.html" class="nav-link">Trip Planning</a>
+						</li>
+						<li>
+							<a href="travel-stories.html" class="nav-link">Travel Stories</a>
+						</li>
+						<li><a href="contact.html" class="nav-link">Contact</a></li>
+					</ul>
+					<div class="hamburger">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<!-- Hero Section -->
+			<section class="hero">
+				<div class="hero-content">
+					<h1>Discover the Magic of Northern Pakistan</h1>
+					<p>
+						Explore breathtaking mountains, pristine valleys, and rich cultural
+						heritage with TravelEase
+					</p>
+					<div class="hero-buttons">
+						<a href="destinations.html" class="btn btn-primary"
+							>Explore Destinations</a
+						>
+						<a href="trip-planning.html" class="btn btn-secondary"
+							>Plan Your Trip</a
+						>
+					</div>
+				</div>
+				<div class="hero-image">
+					<div class="hero-bg"></div>
+				</div>
+			</section>
+
+			<!-- Featured Destinations -->
+			<section class="featured-destinations">
+				<div class="container">
+					<h2 class="section-title">Featured Destinations</h2>
+					<div class="destinations-grid">
+						<div class="destination-card">
+							<div class="card-image hunza-bg"></div>
+							<div class="card-content">
+								<h3>Hunza Valley</h3>
+								<p>
+									Experience the mystical beauty of Hunza with its ancient
+									forts, terraced fields, and stunning mountain vistas.
+								</p>
+								<div class="card-features">
+									<span><i class="fas fa-mountain"></i> Mountain Views</span>
+									<span><i class="fas fa-snowflake"></i> Cool Climate</span>
+									<span><i class="fas fa-camera"></i> Photography</span>
+								</div>
+							</div>
+						</div>
+						<div class="destination-card">
+							<div class="card-image skardu-bg"></div>
+							<div class="card-content">
+								<h3>Skardu</h3>
+								<p>
+									Gateway to the world's highest peaks, offering pristine lakes,
+									dramatic landscapes, and adventure activities.
+								</p>
+								<div class="card-features">
+									<span><i class="fas fa-water"></i> Crystal Lakes</span>
+									<span><i class="fas fa-hiking"></i> Trekking</span>
+									<span><i class="fas fa-star"></i> Adventure</span>
+								</div>
+							</div>
+						</div>
+						<div class="destination-card">
+							<div class="card-image fairymeadows-bg"></div>
+							<div class="card-content">
+								<h3>Fairy Meadows</h3>
+								<p>
+									A magical meadow at the base of Nanga Parbat, perfect for
+									camping under the stars and mountain trekking.
+								</p>
+								<div class="card-features">
+									<span><i class="fas fa-campground"></i> Camping</span>
+									<span><i class="fas fa-sun"></i> Sunrise Views</span>
+									<span><i class="fas fa-leaf"></i> Nature</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Why Choose Us -->
+			<section class="why-choose">
+				<div class="container">
+					<div class="why-content">
+						<div class="why-text">
+							<h2>Why Choose TravelEase?</h2>
+							<p>
+								We specialize in creating unforgettable experiences in Northern
+								Pakistan's most spectacular destinations.
+							</p>
+							<div class="features-list">
+								<div class="feature-item">
+									<i class="fas fa-shield-alt"></i>
+									<div>
+										<h4>Safe & Secure</h4>
+										<p>Trusted local guides and safety protocols</p>
+									</div>
+								</div>
+								<div class="feature-item">
+									<i class="fas fa-map-marked-alt"></i>
+									<div>
+										<h4>Local Expertise</h4>
+										<p>Deep knowledge of hidden gems and culture</p>
+									</div>
+								</div>
+								<div class="feature-item">
+									<i class="fas fa-heart"></i>
+									<div>
+										<h4>Personalized Service</h4>
+										<p>Customized itineraries for your preferences</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="why-image">
+							<div class="image-placeholder"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Reviews Section -->
+			<section class="reviews">
+				<div class="container">
+					<h2 class="section-title">What Our Travelers Say</h2>
+					<div class="reviews-grid">
+						<div class="review-card">
+							<div class="review-header">
+								<div class="reviewer-info">
+									<div class="reviewer-avatar">
+										<i class="fas fa-user"></i>
+									</div>
+									<div class="reviewer-details">
+										<h4>Sarah Johnson</h4>
+										<span>United Kingdom</span>
+									</div>
+								</div>
+								<div class="rating">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+							</div>
+							<p>
+								"The most breathtaking journey of my life! TravelEase made
+								everything perfect from start to finish."
+							</p>
+						</div>
+						<div class="review-card">
+							<div class="review-header">
+								<div class="reviewer-info">
+									<div class="reviewer-avatar">
+										<i class="fas fa-user"></i>
+									</div>
+									<div class="reviewer-details">
+										<h4>Ahmed Hassan</h4>
+										<span>Pakistan</span>
+									</div>
+								</div>
+								<div class="rating">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+							</div>
+							<p>
+								"Professional service and amazing local insights. Highly
+								recommended for anyone exploring Northern Pakistan!"
+							</p>
+						</div>
+						<div class="review-card">
+							<div class="review-header">
+								<div class="reviewer-info">
+									<div class="reviewer-avatar">
+										<i class="fas fa-user"></i>
+									</div>
+									<div class="reviewer-details">
+										<h4>Maria Rodriguez</h4>
+										<span>Spain</span>
+									</div>
+								</div>
+								<div class="rating">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+							</div>
+							<p>
+								"Unforgettable experience! The scenery was spectacular and the
+								hospitality was incredible."
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA Section -->
+			<section class="cta">
+				<div class="container">
+					<div class="cta-content">
+						<h2>Ready to Start Your Adventure?</h2>
+						<p>
+							Let us help you plan the perfect journey through Northern
+							Pakistan's most beautiful destinations.
+						</p>
+						<a href="contact.html" class="btn btn-primary">Get Started Today</a>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<div class="footer-logo">
+							<i class="fas fa-mountain"></i>
+							<span>TravelEase</span>
+						</div>
+						<p>
+							Your trusted partner for exploring the magnificent landscapes and
+							rich culture of Northern Pakistan.
+						</p>
+						<div class="social-links">
+							<a href="#"><i class="fab fa-facebook"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-youtube"></i></a>
+							<a href="#"><i class="fab fa-whatsapp"></i></a>
+						</div>
+					</div>
+					<div class="footer-section">
+						<h4>Quick Links</h4>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="destinations.html">Destinations</a></li>
+							<li><a href="trip-planning.html">Trip Planning</a></li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4>Destinations</h4>
+						<ul>
+							<li><a href="destinations.html#hunza">Hunza Valley</a></li>
+							<li><a href="destinations.html#skardu">Skardu</a></li>
+							<li>
+								<a href="destinations.html#fairymeadows">Fairy Meadows</a>
+							</li>
+							<li><a href="destinations.html#swat">Swat</a></li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4>Contact Info</h4>
+						<div class="contact-info">
+							<p>
+								<i class="fas fa-map-marker-alt"></i> Skardu, Gilgit-Baltistan,
+								Pakistan
+							</p>
+							<p><i class="fas fa-phone"></i> +92 300 1234567</p>
+							<p><i class="fas fa-envelope"></i> info@travelease.pk</p>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p>&copy; 2024 TravelEase. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			// Mobile menu toggle
+			const hamburger = document.querySelector('.hamburger');
+			const navMenu = document.querySelector('.nav-menu');
+
+			hamburger.addEventListener('click', () => {
+				hamburger.classList.toggle('active');
+				navMenu.classList.toggle('active');
+			});
+
+			// Close menu when clicking on a link
+			document.querySelectorAll('.nav-link').forEach((n) =>
+				n.addEventListener('click', () => {
+					hamburger.classList.remove('active');
+					navMenu.classList.remove('active');
+				})
+			);
+		</script>
+	</body>
 </html>
