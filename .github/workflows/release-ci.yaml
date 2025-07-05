@@ -3,7 +3,7 @@ name: Release CI
 on:
   pull_request:
     branches:
-      - release
+      - 'release/**'
     types:
       - opened
       - synchronize
@@ -17,22 +17,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: npm ci 
+
       - name: Run HTMLHint
         run: |
-            echo "Linting HTML files..."
-            npx htmlhint "src/pages/**/*.html" --config .htmlhintrc.json
-            echo "HTML linting completed successfully"
+          echo "Linting HTML files..."
+          npx htmlhint "src/pages/**/*.html" --config .htmlhintrc.json
+          echo "HTML linting completed successfully"
 
       - name: Run Stylelint
         run: |
-            echo "Linting CSS files..."
-            if find src/css -name "*.css" | grep -q .; then
-              npx stylelint "src/css/**/*.css" --config .stylelintrc.json
-              echo "CSS linting completed successfully"  
-            else
-              echo "No CSS files found to lint"
-            fi
-# Job 2
+          echo "Linting CSS files..."
+          if find src/css -name "*.css" | grep -q .; then
+            npx stylelint "src/css/**/*.css" --config .stylelintrc.json
+            echo "CSS linting completed successfully"  
+          else
+            echo "No CSS files found to lint"
+          fi
+  # Job 2
   build:
     name: Build Website
     runs-on: ubuntu-latest
@@ -41,4 +44,3 @@ jobs:
         uses: actions/checkout@v4
       - name: Test Building With Parcel
         run: npx parcel build "./src/pages/index.html" --dist-dir "./dist" --public-url "./"
-        
