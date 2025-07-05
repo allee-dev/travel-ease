@@ -28,6 +28,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      statuses: write
     steps:
       - name: Deploy Website On GH-Pages
         uses: actions/deploy-pages@v4
