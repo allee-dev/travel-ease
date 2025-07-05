@@ -2,7 +2,8 @@ name: Release CD
 
 on:
   push:
-    branches: [release]
+    branches:
+      - 'release/**'
 
 jobs:
   build:
