@@ -1,0 +1,87 @@
+name: Production CI
+
+on:
+  pull_request:
+    branches: 
+      - production
+      - develop
+
+jobs:
+  lint:
+    name: Lint HTML and CSS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Run HTMLHint
+        run: |
+          echo "Linting HTML files..."
+          npx htmlhint "src/pages/*/.html"
+          echo "HTML linting completed successfully"
+        
+      - name: Run Stylelint
+        run: |
+            echo "Linting CSS files with basic rules..."
+            if find styles -name "*.css" | grep -q .; then
+              npx stylelint "src/css/*/.css"
+              echo "CSS linting completed successfully"  
+            else
+              echo "No CSS files found to lint"
+            fi
+
+  build:
+    name: Build With Parcel
+    runs-on: ubuntu-latest
+    steps:  
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build with Parcel
+        run: npx parcel build "src/pages/index.html" --dist-dir "./dist" --public-url "./"
+
+  validate:
+    name: Validate Production Build
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate production readiness
+        shell: bash
+        run: |
+          echo "Validating production build..."
+
+          # Required pages
+          required_pages=("index.html" "about.html" "destinations.html" "trip-planning.html" "travel-stories.html" "contact.html")
+          for page in "${required_pages[@]}"; do
+            if [ ! -f "dist/$page" ]; then
+              echo "Error: Required page $page not found!"
+              exit 1
+            fi
+          done
+
+          # Check if any CSS file exists
+          css_found=$(find dist/ -maxdepth 1 -name "*.css" | wc -l)
+          if [ "$css_found" -eq 0 ]; then
+            echo "Warning: No CSS files found in dist/"
+          fi
+
+          echo "Production validation completed successfully!"
+
+      - name: Performance check
+        run: |
+          echo "Checking file sizes for production..."
+          total_size=$(du -sb dist/ | cut -f1)
+          echo "📦 Total build size: $total_size bytes"
+
+          if [ "$total_size" -gt 10485760 ]; then
+            echo "Warning: Build size exceeds 10MB"
+          fi
+
+      - name: Upload production build
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: production-build
+          path: dist/
