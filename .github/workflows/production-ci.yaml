@@ -17,18 +17,18 @@ jobs:
       - name: Run HTMLHint
         run: |
           echo "Linting HTML files..."
-          npx htmlhint "src/pages/*/.html"
+          npx htmlhint "src/pages/**/*.html"
           echo "HTML linting completed successfully"
         
       - name: Run Stylelint
         run: |
-            echo "Linting CSS files with basic rules..."
-            if find styles -name "*.css" | grep -q .; then
-              npx stylelint "src/css/*/.css"
-              echo "CSS linting completed successfully"  
-            else
-              echo "No CSS files found to lint"
-            fi
+          echo "Linting CSS files with basic rules..."
+          if find styles -name "*.css" | grep -q .; then
+            npx stylelint "src/css/**/*.css"
+            echo "CSS linting completed successfully"  
+          else
+            echo "No CSS files found to lint"
+          fi
 
   build:
     name: Build With Parcel
@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: production-build
-          path: './dist'  
+          path: './dist'
 
   validate:
     name: Validate Production Build
@@ -58,14 +58,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: production-build
-          path: './dist'  
+          path: './dist'
 
       - name: Validate production readiness
         shell: bash
         run: |
           echo "Validating production build..."
 
-          # Required pages
           required_pages=("index.html" "about.html" "destinations.html" "trip-planning.html" "travel-stories.html" "contact.html")
           for page in "${required_pages[@]}"; do
             if [ ! -f "dist/$page" ]; then
@@ -74,8 +73,7 @@ jobs:
             fi
           done
 
-          # Check if any CSS file exists
-          css_found=$(find dist/ -maxdepth 1 -name "*.css" | wc -l)
+          css_found=$(find dist/ -name "*.css" | wc -l)
           if [ "$css_found" -eq 0 ]; then
             echo "Warning: No CSS files found in dist/"
           fi
@@ -91,9 +89,3 @@ jobs:
           if [ "$total_size" -gt 10485760 ]; then
             echo "Warning: Build size exceeds 10MB"
           fi
-
-      - name: Upload production build
-        uses: actions/upload-pages-artifact@v3
-        with:
-          name: production-build
-          path: dist/
