@@ -1,0 +1,50 @@
+name: Production CD
+
+on:
+  push:
+    branches: 
+      - production
+      - develop
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Lint HTML
+        run: npx htmlhint "src/pages/**/*.html" --config .htmlhintrc
+
+      - name: Lint CSS
+        run: npx stylelint "src/css/**/*.css" --config .stylelintrc.json
+
+      - name: Build with Parcel
+        run: npx parcel build src/pages/index.html --dist-dir dist --public-url ./
+
+      - name: Upload artifact for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: production-env
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
