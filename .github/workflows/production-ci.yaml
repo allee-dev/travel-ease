@@ -43,8 +43,8 @@ jobs:
       - name: Upload production build
         uses: actions/upload-pages-artifact@v3
         with:
-          name: 'build-artifact-${{ github.run_number }}'
-          path: '.dist/'  
+          name: production-build
+          path: './dist'  
 
   validate:
     name: Validate Production Build
@@ -57,8 +57,8 @@ jobs:
       - name: Download production build
         uses: actions/download-artifact@v3
         with:
-          name: 'build-artifact-${{ github.run_number }}'
-          path: dist/  
+          name: production-build
+          path: './dist'  
 
       - name: Validate production readiness
         shell: bash
