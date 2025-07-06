@@ -21,7 +21,6 @@
 					</div>
 					<ul class="nav-menu">
 						<li><a href="index.html" class="nav-link active">Home</a></li>
-						<li><a href="about.html" class="nav-link">About Us</a></li>
 						<li>
 							<a href="destinations.html" class="nav-link">Destinations</a>
 						</li>
@@ -32,6 +31,7 @@
 							<a href="travel-stories.html" class="nav-link">Travel Stories</a>
 						</li>
 						<li><a href="contact.html" class="nav-link">Contact</a></li>
+						<li><a href="about.html" class="nav-link">About Us</a></li>
 					</ul>
 					<div class="hamburger">
 						<span></span>
@@ -313,23 +313,6 @@
 			</div>
 		</footer>
 
-		<script>
-			// Mobile menu toggle
-			const hamburger = document.querySelector('.hamburger');
-			const navMenu = document.querySelector('.nav-menu');
-
-			hamburger.addEventListener('click', () => {
-				hamburger.classList.toggle('active');
-				navMenu.classList.toggle('active');
-			});
-
-			// Close menu when clicking on a link
-			document.querySelectorAll('.nav-link').forEach((n) =>
-				n.addEventListener('click', () => {
-					hamburger.classList.remove('active');
-					navMenu.classList.remove('active');
-				})
-			);
-		</script>
+		<script src="../js/common.js"></script>
 	</body>
 </html>
