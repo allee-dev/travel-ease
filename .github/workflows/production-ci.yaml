@@ -54,7 +54,7 @@ jobs:
           echo "Validating production build..."
 
           # Required pages
-          required_pages=("./src/pages/index.html" "./src/pages/about.html" "./src/pages/destinations.html" "./src/pages/trip-planning.html" "./src/pages/travel-stories.html" "./src/pages/contact.html")
+          required_pages=("index.html" "about.html" "destinations.html" "trip-planning.html" "travel-stories.html" "contact.html")
           for page in "${required_pages[@]}"; do
             if [ ! -f "dist/$page" ]; then
               echo "Error: Required page $page not found!"
