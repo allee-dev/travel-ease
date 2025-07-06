@@ -40,6 +40,12 @@ jobs:
       - name: Build with Parcel
         run: npx parcel build "src/pages/index.html" --dist-dir "./dist" --public-url "./"
 
+      - name: Upload production build
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: 'build-artifact-${{ github.run_number }}'
+          path: '.dist/'  
+
   validate:
     name: Validate Production Build
     runs-on: ubuntu-latest
@@ -47,6 +53,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        
+      - name: Download production build
+        uses: actions/download-artifact@v3
+        with:
+          name: 'build-artifact-${{ github.run_number }}'
+          path: dist/  
 
       - name: Validate production readiness
         shell: bash
